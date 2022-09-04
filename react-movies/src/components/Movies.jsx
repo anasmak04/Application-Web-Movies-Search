@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 export default function Movies() {
-  const [query, setQuery] = useState("breaking bad");
+  const [query, setQuery] = useState("prison break");
   const [item, setItem] = useState([]);
   const options = {
     method: "GET",
@@ -13,16 +13,17 @@ export default function Movies() {
     },
   };
 
-  axios
-    .request(options)
+  useEffect(() => {
+    axios.request(options)
     .then((response) => {
       setItem(response.data);
-      console.log(response.data);
+       console.log(response.data);
     })
 
     .catch((err) => {
       console.log(err);
     });
+  },[query])
   return (
     <div>
       <h1>{item.query}</h1>
