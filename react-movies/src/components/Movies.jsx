@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 export default function Movies() {
-    const [query,setQuery] = useState("breaking bad");
-    const [item,setItem] = useState([]);
+  const [query, setQuery] = useState("breaking bad");
+  const [item, setItem] = useState([]);
   const options = {
     method: "GET",
     url: "https://online-movie-database.p.rapidapi.com/title/find",
@@ -16,14 +16,16 @@ export default function Movies() {
   axios
     .request(options)
     .then((response) => {
-      setItem(response.data)
-      console.log(response.data)
+      setItem(response.data);
+      console.log(response.data);
     })
 
     .catch((err) => {
       console.log(err);
     });
-  return <div>
-
-       </div>;
+  return (
+    <div>
+      <h1>{item.query}</h1>
+    </div>
+  );
 }
