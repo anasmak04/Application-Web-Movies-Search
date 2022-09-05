@@ -33,35 +33,39 @@ export default function Movies() {
   const imput = (e) => setQuery(e.target.value);
   return (
     <div>
-    
-    <div class="newsletter">
-  <form action="" onSubmit={formEvent}>
-    <div class="form-input">
-      <input  type="text" placeholder="enter here" onChange={imput} class="input"  required />
-      <i></i>
-    </div>
-    <div class="form-button">
-      <button type="submit" class="btnEnviar">OK</button>
-    </div>
-  </form>
-</div>  
+      <div class="newsletter">
+        <form action="" onSubmit={formEvent}>
+          <div class="form-input">
+            <input
+              type="text"
+              placeholder="search by movie"
+              onChange={imput}
+              class="input"
+              required
+            />
+            <i></i>
+          </div>
+          <div class="form-button">
+            <button type="submit" class="btnEnviar">
+              OK
+            </button>
+          </div>
+        </form>
+      </div>
 
-
-       
-        <h1 className="title">
+      <h1 className="title">
         found {items.length} movies by search query {query}
       </h1>
 
-        {items.map((item) => {
+      {items.map((item) => {
         return (
-          <div key={item.id} className="flex-container">
-         
-            <div class="item1">
-            <img src={item.i.imageUrl} alt="image" />
-            <h2>name: {item.id}</h2>
-            <h2>country: {item.l}</h2>
-            <h2>country: {item.q}</h2>
-            <h2>rank: {item.rank}</h2>
+          <div className="flex-container">
+            <div key={item.id}>
+              <img src={item.i.imageUrl} alt="image" />
+              <h2>name: {item.id}</h2>
+              <h2>country: {item.l}</h2>
+              <h2>country: {item.q}</h2>
+              <h2>rank: {item.rank}</h2>
             </div>
           </div>
         );

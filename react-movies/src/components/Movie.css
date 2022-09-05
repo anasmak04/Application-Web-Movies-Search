@@ -94,9 +94,20 @@ body {
 .title {
   text-align: center;
   margin-bottom: 30px;
+  text-transform: capitalize;
 }
 
 .flex-container {
   display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  width: 100%;
   background-color: #f1f1f1;
+}
+
+.btnEnviar:hover{
+    background-color: brown;
+    color: white;
 }
