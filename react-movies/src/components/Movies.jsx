@@ -10,8 +10,8 @@ export default function Movies() {
     url: "https://imdb8.p.rapidapi.com/auto-complete",
     params: { q: `${query}` },
     headers: {
-      "X-RapidAPI-Key": "c02a467fe7msh0c85f69b55746f4p1e11e9jsnd757a87b4be1",
-      "X-RapidAPI-Host": "imdb8.p.rapidapi.com",
+      "X-RapidAPI-Key":   process.env.X-RapidAPI-Key,
+      "X-RapidAPI-Host": process.env.X-RapidAPI-Host,
     },
   };
 
@@ -57,9 +57,8 @@ export default function Movies() {
         found {items.length} movies by search query {query}
       </h1>
       <div className="flex-container">
-
-      {items.map((item) => {
-        return (
+        {items.map((item) => {
+          return (
             <div key={item.id}>
               <img src={item.i.imageUrl} alt="image" />
               <h2>ID: {item.id}</h2>
@@ -67,10 +66,9 @@ export default function Movies() {
               <h2>channel: {item.q}</h2>
               <h2>RANK: {item.rank}</h2>
             </div>
-        );
-      })}
-                </div>
-
+          );
+        })}
+      </div>
     </div>
   );
 }
