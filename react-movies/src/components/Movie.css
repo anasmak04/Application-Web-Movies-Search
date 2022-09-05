@@ -6,3 +6,9 @@ img{
 display: flex;
 flex-direction: row;
 }
+
+
+.parent_form{
+    display: flex;
+    justify-content: center;
+}

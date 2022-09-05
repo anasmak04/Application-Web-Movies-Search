@@ -36,22 +36,28 @@ export default function Movies() {
       <h1>
         found {items.length} movies by search query {query}
       </h1>
-      {items.map((item) => {
+      
+
+        <div className="parent_form">
+        <form onSubmit={formEvent}>
+        <input type="text" placeholder="enter here" onChange={imput} />
+        <button type="submit">btn</button>
+      </form>
+        </div>
+
+
+        {items.map((item) => {
         return (
           <div key={item.id} className="parent">
             <img src={item.i.imageUrl} alt="image" />
             <h2>name: {item.id}</h2>
             <h2>country: {item.l}</h2>
             <h2>country: {item.q}</h2>
+            <h2>rank: {item.rank}</h2>
             <hr />
           </div>
         );
       })}
-
-      <form onSubmit={formEvent}>
-        <input type="text" placeholder="enter here" onChange={imput} />
-        <button type="submit">btn</button>
-      </form>
     </div>
   );
 }
