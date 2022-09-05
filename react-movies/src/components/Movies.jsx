@@ -33,13 +33,16 @@ export default function Movies() {
   const imput = (e) => setQuery(e.target.value);
   return (
     <div>
+      <h1>
+        found {items.length} movies by search query {query}
+      </h1>
       {items.map((item) => {
         return (
-          <div key={item.id}>
+          <div key={item.id} className="parent">
+            <img src={item.i.imageUrl} alt="image" />
             <h2>name: {item.id}</h2>
             <h2>country: {item.l}</h2>
             <h2>country: {item.q}</h2>
-            <img src={item.i.imageUrl} alt="image" />
             <hr />
           </div>
         );

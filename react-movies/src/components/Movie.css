@@ -1,3 +1,8 @@
 img{
     width: 200px;
 }
+
+.parent{
+display: flex;
+flex-direction: row;
+}
