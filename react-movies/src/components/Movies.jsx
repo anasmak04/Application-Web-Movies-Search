@@ -33,18 +33,24 @@ export default function Movies() {
   const imput = (e) => setQuery(e.target.value);
   return (
     <div>
-      <h1>
+    
+    <div class="newsletter">
+  <form action="" onSubmit={formEvent}>
+    <div class="form-input">
+      <input  type="text" placeholder="enter here" onChange={imput} class="input"  required />
+      <i></i>
+    </div>
+    <div class="form-button">
+      <button type="submit" class="btnEnviar">OK</button>
+    </div>
+  </form>
+</div>  
+
+
+       
+        <h1 className="title">
         found {items.length} movies by search query {query}
       </h1>
-      
-
-        <div className="parent_form">
-        <form onSubmit={formEvent}>
-        <input type="text" placeholder="enter here" onChange={imput} />
-        <button type="submit">btn</button>
-      </form>
-        </div>
-
 
         {items.map((item) => {
         return (
@@ -54,7 +60,6 @@ export default function Movies() {
             <h2>country: {item.l}</h2>
             <h2>country: {item.q}</h2>
             <h2>rank: {item.rank}</h2>
-            <hr />
           </div>
         );
       })}
