@@ -54,12 +54,15 @@ export default function Movies() {
 
         {items.map((item) => {
         return (
-          <div key={item.id} className="parent">
+          <div key={item.id} className="flex-container">
+         
+            <div class="item1">
             <img src={item.i.imageUrl} alt="image" />
             <h2>name: {item.id}</h2>
             <h2>country: {item.l}</h2>
             <h2>country: {item.q}</h2>
             <h2>rank: {item.rank}</h2>
+            </div>
           </div>
         );
       })}
