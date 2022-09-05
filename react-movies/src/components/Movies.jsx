@@ -11,8 +11,8 @@ export default function Movies() {
     url: "https://imdb8.p.rapidapi.com/auto-complete",
     params: { q: `${query}` },
     headers: {
-      "X-RapidAPI-Key": `${Key}`,
-      "X-RapidAPI-Host": `${Host}`,
+      "X-RapidAPI-Key": "c02a467fe7msh0c85f69b55746f4p1e11e9jsnd757a87b4be1",
+      "X-RapidAPI-Host": "imdb8.p.rapidapi.com",
     },
   };
 
