@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import "./Movie.css";
 export default function Movies() {
-  const [query, setQuery] = useState("Elite");
-  const [item, setItem] = useState([]);
+  const [query, setQuery] = useState("");
+  const [items, setItems] = useState([]);
 
   const options = {
     method: "GET",
@@ -14,22 +15,40 @@ export default function Movies() {
     },
   };
 
-  useEffect(() => {
+  const formEvent = (e) => {
+    e.preventDefault();
     axios
       .request(options)
       .then((response) => {
-        setItem(response.data);
-        console.log(response.data);
+        setItems(response.data.d);
+
+        console.log(items);
       })
 
       .catch((err) => {
         console.log(err);
       });
-  }, [query]);
+  };
+
+  const imput = (e) => setQuery(e.target.value);
   return (
     <div>
-      <h1>idd : {item.v}</h1>
-      <h1>Name : {item.q}</h1>
+      {items.map((item) => {
+        return (
+          <div key={item.id}>
+            <h2>name: {item.id}</h2>
+            <h2>country: {item.l}</h2>
+            <h2>country: {item.q}</h2>
+            <img src={item.i.imageUrl} alt="image" />
+            <hr />
+          </div>
+        );
+      })}
+
+      <form onSubmit={formEvent}>
+        <input type="text" placeholder="enter here" onChange={imput} />
+        <button type="submit">btn</button>
+      </form>
     </div>
   );
 }
