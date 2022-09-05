@@ -5,7 +5,7 @@ export default function Movies() {
   const [query, setQuery] = useState("");
   const [items, setItems] = useState([]);
 
-  const {Key,Host} = process.env;
+  const { Key, Host } = process.env;
   const options = {
     method: "GET",
     url: "https://imdb8.p.rapidapi.com/auto-complete",
@@ -23,9 +23,17 @@ export default function Movies() {
     axios
       .request(options)
       .then((response) => {
-        setItems(response.data.d);
+        if(!response.data.d.length){
+          return(
+              <div>
+                  <h1>nothing found.</h1>
+              </div>
+          )
+      } else {
+          setItems(response.data.d);
 
-        console.log(items);
+          console.log(items);
+        }
       })
 
       .catch((err) => {
