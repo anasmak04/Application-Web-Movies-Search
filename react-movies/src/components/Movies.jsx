@@ -5,15 +5,18 @@ export default function Movies() {
   const [query, setQuery] = useState("");
   const [items, setItems] = useState([]);
 
+  const {Key,Host} = process.env;
   const options = {
     method: "GET",
     url: "https://imdb8.p.rapidapi.com/auto-complete",
     params: { q: `${query}` },
     headers: {
-      "X-RapidAPI-Key":   process.env.X-RapidAPI-Key,
-      "X-RapidAPI-Host": process.env.X-RapidAPI-Host,
+      "X-RapidAPI-Key": `${Key}`,
+      "X-RapidAPI-Host": `${Host}`,
     },
   };
+
+  console.log(process.env.Key);
 
   const formEvent = (e) => {
     e.preventDefault();
@@ -33,20 +36,20 @@ export default function Movies() {
   const imput = (e) => setQuery(e.target.value);
   return (
     <div>
-      <div class="newsletter">
+      <div className="newsletter">
         <form action="" onSubmit={formEvent}>
-          <div class="form-input">
+          <div className="form-input">
             <input
               type="text"
               placeholder="search by movie"
               onChange={imput}
-              class="input"
+              className="input"
               required
             />
             <i></i>
           </div>
-          <div class="form-button">
-            <button type="submit" class="btnEnviar">
+          <div className="form-button">
+            <button type="submit" className="btnEnviar">
               OK
             </button>
           </div>
