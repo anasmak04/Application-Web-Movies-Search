@@ -99,15 +99,17 @@ body {
 
 .flex-container {
   display: flex;
-  justify-content: space-around;
+  /* justify-content: space-evenly; */
+  margin: 12px;
   align-items: center;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  width: 100%;
+  flex-wrap: wrap;
   background-color: #f1f1f1;
 }
+.flex-container  > div{
+    width:20%;
+}
 
-.btnEnviar:hover{
-    background-color: brown;
-    color: white;
+.btnEnviar:hover {
+  background-color: rgb(121, 135, 72);
+  color: white;
 }

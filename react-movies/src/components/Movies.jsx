@@ -56,20 +56,21 @@ export default function Movies() {
       <h1 className="title">
         found {items.length} movies by search query {query}
       </h1>
+      <div className="flex-container">
 
       {items.map((item) => {
         return (
-          <div className="flex-container">
             <div key={item.id}>
               <img src={item.i.imageUrl} alt="image" />
-              <h2>name: {item.id}</h2>
-              <h2>country: {item.l}</h2>
-              <h2>country: {item.q}</h2>
-              <h2>rank: {item.rank}</h2>
+              <h2>ID: {item.id}</h2>
+              <h2>Name: {item.l}</h2>
+              <h2>channel: {item.q}</h2>
+              <h2>RANK: {item.rank}</h2>
             </div>
-          </div>
         );
       })}
+                </div>
+
     </div>
   );
 }
