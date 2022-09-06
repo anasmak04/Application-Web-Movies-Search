@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Movie.css";
+import Error from "./Error";
 export default function Movies() {
   const [query, setQuery] = useState("");
   const [items, setItems] = useState([]);
@@ -23,16 +24,10 @@ export default function Movies() {
     axios
       .request(options)
       .then((response) => {
-        if(!response.data.d.length){
-          return(
-              <div>
-                  <h1>nothing found.</h1>
-              </div>
-          )
-      } else {
+        if (!response.data.d.length) {
+          return <Error />;
+        } else {
           setItems(response.data.d);
-
-          console.log(items);
         }
       })
 
